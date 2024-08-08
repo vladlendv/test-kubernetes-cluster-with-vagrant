@@ -6,11 +6,11 @@ In this example we will create a cluster with one master node and two workers.
 1. Vagrant
 2. VM VirtualBox
 
-## Step 1 - Start vagrant box
 As a minimum requirement for kubernetes installation we need 
 1. Master Node - 2 cpus, 2 GB Memory
 2. Worker Node - 2 cpu, 2 GB Memory
 
+## Step 1 - Copy repo and start vagrant box
 To get started, copy this repository to your computer, because we use helper scripts in ubuntu folder to build vagrant.
 ```
 git clone https://github.com/vladlendv/test-kubernetes-cluster-with-vagrant.git
