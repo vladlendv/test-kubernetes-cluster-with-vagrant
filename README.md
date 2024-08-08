@@ -89,7 +89,7 @@ So run the following installation command on both the nodes
 sudo apt-get update
 ```
 ```
-sudo apt install docker.io
+sudo apt install docker.io -y
 ```
 Enable and start docker
 ```
