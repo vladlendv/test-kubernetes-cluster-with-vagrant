@@ -2,15 +2,16 @@
 
 ### Prerequisites
 
-1. Vagrant 2.2.15 or latest
+1. Vagrant
 2. VM VirtualBox
 
 ## Step 1 - Start vagrant box
 As a minimum requirement for kubernetes installation we need 
 1. Master Node - 2 cpus, 2 GB Memory
-2. Worker Node - 1 cpu, 1 GB Memory
+2. Worker Node - 2 cpu, 2 GB Memory
 
-Use following Vagrantfile or at least create a Vagrantfile and copy the following configuration into it:
+Use following Vagrantfile or at least create a Vagrantfile and copy the following configuration into it.
+You can also set the desired number of nodes by editing these values ​​in the wagent file.
 
 NOTE: to bypass the blocking we use the following link at the beginning of the file
 ```
