@@ -15,7 +15,7 @@ To get started, copy this repository to your computer and go to its directory to
 ```
 git clone https://github.com/vladlendv/test-kubernetes-cluster-with-vagrant.git
 ```
-You can also set the desired number of nodes by editing these values ​​in the wagent file. If this number is changed, remember to update setup-hosts.sh script with the new hosts IP details in /etc/hosts of each VM.
+You can also set the desired number of nodes by editing these values ​​in the Vagrantfile. If this number is changed, remember to update setup-hosts.sh script with the new hosts IP details in /etc/hosts of each VM.
 
 NOTE: to bypass the blocking we use the following link at the beginning of the file
 ```
