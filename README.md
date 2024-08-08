@@ -11,7 +11,7 @@ As a minimum requirement for kubernetes installation we need
 2. Worker Node - 2 cpu, 2 GB Memory
 
 ## Step 1 - Copy repo and start vagrant box
-To get started, copy this repository to your computer, because we use helper scripts in ubuntu folder to build vagrant.
+To get started, copy this repository to your computer and go to its directory to execute commands, because we use helper scripts in ubuntu folder to build vagrant.
 ```
 git clone https://github.com/vladlendv/test-kubernetes-cluster-with-vagrant.git
 ```
@@ -171,7 +171,7 @@ PING controlplane01 (100.0.0.1) 56(84) bytes of data.
 64 bytes from controlplane01 (100.0.0.1): icmp_seq=2 ttl=64 time=0.510 ms
 ```
 
-To connect directly via SSH to nodes use the following commands:
+log in to all nodes via SSH as shown below, for ease of further configuration you can open them in separate terminals:
 ```
 vagrant ssh controlplane01
 ```
