@@ -1,6 +1,11 @@
 ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
 
 Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: <<-SHELL
+  apt-get update -y
+  echo "100.0.0.1  master" >> /etc/hosts
+  echo "100.0.0.2  worker" >> /etc/hosts
+  SHELL
   config.vm.define "master" do |master|
     master.vm.box_download_insecure = true    
     master.vm.box = "ubuntu/jammy64"
