@@ -57,7 +57,7 @@ Start you virtual boxes by starting up your vagrant box
 ```
 vagrant up 
 ```
-## Step 2 - Update host files on both master and worker node
+## Step 2 - Update host files(on both nodes)
 This stage has been added for automatic execution in the vargant file, for all nodes, so you don't have to worry about it. You can only check that the connection between nodes is available by their name.
 
 Test the worker node by sending from master
@@ -82,7 +82,7 @@ vagrant ssh master
 ```
 vagrant ssh worker
 ```
-## Step 3 - Install Docker on both master and worker node
+## Step 3 - Install Docker(on both nodes)
 You need to install Docker on both the node.
 So run the following installation command on both the nodes
 ```
@@ -102,7 +102,7 @@ Check the docker service status
 ```
 sudo systemctl status docker
 ```
-## Step 4 - Disable the firewall and turnoff the "swapping"
+## Step 4 - Disable the firewall and turnoff the "swapping"(on both nodes)
 We need to disable firewall as well as swapping on master as well as worker node. Because to install kubernetes we need to disable the swapping on both the nodes
 ```
 sudo ufw disable
@@ -110,7 +110,7 @@ sudo ufw disable
 ```
 sudo swapoff -a
 ```
-## Step 5 - Installing kubeadm, kubelet and kubectl
+## Step 5 - Installing kubeadm, kubelet and kubectl(on both nodes)
 As a next step you will install these packages on all of your machines
 1. Update the apt package index and install packages needed to use the Kubernetes apt repository:
 apt-transport-https may be a dummy package; if so, you can skip that package
@@ -150,7 +150,7 @@ sudo systemctl enable --now kubelet
 ```
 The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
 
-## Step 6 - Let's enable cni pliugn in the configuration file /etc/containerd/config.toml
+## Step 6 - Let's enable cni pliugn in the configuration file /etc/containerd/config.toml(on both nodes)
 if you dont have file /etc/containerd/config.toml
 ```
 sudo mkdir /etc/containerd
