@@ -1,4 +1,4 @@
-# Step by step guide to setup Multi-node Kubernetes cluster on a local computer using Vagrant and Kubeadm
+# Step by step guide to setup Multi-node Kubernetes cluster on a local machine using Vagrant and Kubeadm
 
 ### Prerequisites
 
