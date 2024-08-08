@@ -1,4 +1,4 @@
-# Guide to setup two and more nodes for Kubernetes cluster.
+# Step by step guide to setup Multi-node Kubernetes cluster on a local computer using Vagrant and Kubeadm
 
 ### Prerequisites
 
