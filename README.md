@@ -11,9 +11,11 @@ As a minimum requirement for kubernetes installation we need
 1. Master Node - 2 cpus, 2 GB Memory
 2. Worker Node - 2 cpu, 2 GB Memory
 
-Use following Vagrantfile or at least create a Vagrantfile and copy the following configuration into it.
+To get started, copy this repository to your computer, because we use helper scripts in ubuntu folder to build vagrant.
+```
+git clone https://github.com/vladlendv/test-kubernetes-cluster-with-vagrant.git
+```
 You can also set the desired number of nodes by editing these values ​​in the wagent file.
-
 NOTE: to bypass the blocking we use the following link at the beginning of the file
 ```
 ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
