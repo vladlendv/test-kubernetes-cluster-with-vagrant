@@ -1,11 +1,11 @@
-#Guide to setup two and more nodes for Kubernetes cluster.
+# Guide to setup two and more nodes for Kubernetes cluster.
 
-###Prerequisites
+### Prerequisites
 
 1. Vagrant 2.2.15 or latest
 2. VM VirtualBox
 
-##Step 1 - Start vagrant box
+## Step 1 - Start vagrant box
 As a minimum requirement for kubernetes installation we need 
 1. Master Node - 2 cpus, 2 GB Memory
 2. Worker Node - 1 cpu, 1 GB Memory
@@ -52,7 +52,7 @@ Start you virtual boxes by starting up your vagrant box
 ```
 vagrant up 
 ```
-##Step 2 - Update host files on both master and worker node
+## Step 2 - Update host files on both master and worker node
 
 After starting the vagrant box now we need to login into the virtual machine using the command vagrant ssh master
 
@@ -100,7 +100,7 @@ PING master.jhooq.com (100.0.0.1) 56(84) bytes of data.
 64 bytes from master.jhooq.com (100.0.0.1): icmp_seq=1 ttl=64 time=0.238 ms
 64 bytes from master.jhooq.com (100.0.0.1): icmp_seq=2 ttl=64 time=0.510 ms
 ```
-##Step 3 - Install Docker on both master and worker node
+## Step 3 - Install Docker on both master and worker node
 You need to install Docker on both the node.
 So run the following installation command on both the nodes
 ```
@@ -120,7 +120,7 @@ Check the docker service status
 ```
 sudo systemctl status docker
 ```
-##Step 4 - Disable the firewall and turnoff the "swapping"
+## Step 4 - Disable the firewall and turnoff the "swapping"
 We need to disable firewall as well as swapping on master as well as worker node. Because to install kubernetes we need to disable the swapping on both the nodes
 ```
 sudo ufw disable
@@ -128,7 +128,7 @@ sudo ufw disable
 ```
 sudo swapoff -a
 ```
-##Step 5 - Installing kubeadm, kubelet and kubectl
+## Step 5 - Installing kubeadm, kubelet and kubectl
 As a next step you will install these packages on all of your machines
 1. Update the apt package index and install packages needed to use the Kubernetes apt repository:
 ```
@@ -161,7 +161,7 @@ sudo systemctl enable --now kubelet
 ```
 The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
 
-##Step 6 - Let's enable cni pliugn in the configuration file /etc/containerd/config.toml
+## Step 6 - Let's enable cni pliugn in the configuration file /etc/containerd/config.toml
 ```
 containerd config default > /etc/containerd/config.toml
 ```
@@ -182,7 +182,7 @@ SystemdCgroup = true
 ```
 sudo systemctl restart containerd.service
 ```
-##Step 7 - Initialize the kubernetes cluster
+## Step 7 - Initialize the kubernetes cluster
 Okay now we have reach to point where we have done all the prerequisite for initializing the kubernetes cluster.
 **Let's run the kubernetes initialization command on only on master**
 ```
@@ -193,7 +193,7 @@ Note down kubeadm join command which we are going to use from worker node to joi
 sudo kubeadm join 100.0.0.1:6443 --token ixgzbr.effn6upbfszz8xiw \
         --discovery-token-ca-cert-hash sha256:75f77617955d94b788e3f3d9578dd84aff4b27b6036e73134db61da85ea1cf01
 ```
-##Step 8 - Move kube config file to current user (only run on master)
+## Step 8 - Move kube config file to current user (only run on master)
 To interact with the kubernetes cluster and to user kubectl command, we need to have the kube config file with us.
 Use the following command to get the kube config file and put it under working directory.
 ```
@@ -205,14 +205,14 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-##Step 9 - Apply CNI from kube-flannel.yml(only run on master)
+## Step 9 - Apply CNI from kube-flannel.yml(only run on master)
 ```
 wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 ```
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
-##Step 10 - Join worker nodes to master(only run on worker)
+## Step 10 - Join worker nodes to master(only run on worker)
 In the Step 7 we generated the token and kubeadm join command.
 Now we need to use that join command from our worker node
 *(Note : - Followig command will be different for you, do not try copy the following command)*
@@ -228,7 +228,7 @@ This node has joined the cluster:
 
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
-##Step 11 - Check the nodes status(only run on master)
+## Step 11 - Check the nodes status(only run on master)
 To check the status of the nodes use
 ```
 kubectl get nodes
