@@ -238,6 +238,6 @@ NAME     STATUS     ROLES           AGE   VERSION
 master   Ready      control-plane   42h   v1.30.3
 worker   NotReady   <none>          41h   v1.30.3
 ```
-
+That's it, have fun :)
 
 
