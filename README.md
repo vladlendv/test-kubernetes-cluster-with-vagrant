@@ -58,42 +58,11 @@ Start you virtual boxes by starting up your vagrant box
 vagrant up 
 ```
 ## Step 2 - Update host files on both master and worker node
+This stage has been added for automatic execution in the vargant file, for all nodes, so you don't have to worry about it. You can only check that the connection between nodes is available by their name.
 
-After starting the vagrant box now we need to login into the virtual machine using the command vagrant ssh master
-
-master node - SSH into the master node
-```
-vagrant ssh master
-```
-Add host entry for master as well as worker node
-```
-sudo vi /etc/hosts
-```
-```
-100.0.0.1 master
-100.0.0.2 worker
-```
-worker node - SSH into the master node
-```
-vagrant ssh worker
-```
-Add host entry for master as well as worker node
-```
-sudo vi /etc/hosts
-```
-```
-100.0.0.1 master
-100.0.0.2 worker
-```
 Test the worker node by sending from master
 ```
 ping worker
-```
-example of expected output
-```
-PING worker (100.0.0.2) 56(84) bytes of data.
-64 bytes from worker (100.0.0.2): icmp_seq=1 ttl=64 time=0.462 ms
-64 bytes from worker (100.0.0.2): icmp_seq=2 ttl=64 time=0.686 ms
 ```
 Test the master node by sending from worker
 ```
@@ -104,6 +73,14 @@ example of expected output
 PING master (100.0.0.1) 56(84) bytes of data.
 64 bytes from master (100.0.0.1): icmp_seq=1 ttl=64 time=0.238 ms
 64 bytes from master (100.0.0.1): icmp_seq=2 ttl=64 time=0.510 ms
+```
+
+To connect directly via SSH to nodes use the following commands:
+```
+vagrant ssh master
+```
+```
+vagrant ssh worker
 ```
 ## Step 3 - Install Docker on both master and worker node
 You need to install Docker on both the node.
