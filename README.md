@@ -185,7 +185,7 @@ save file and exit
 ```
 sudo systemctl restart containerd.service
 ```
-## Step 7 - Initialize the kubernetes cluster
+## Step 7 - Initialize the kubernetes cluster(only run on master)
 Okay now we have reach to point where we have done all the prerequisite for initializing the kubernetes cluster.
 **Let's run the kubernetes initialization command on only on master**
 ```
