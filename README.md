@@ -151,8 +151,21 @@ sudo systemctl enable --now kubelet
 The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
 
 ## Step 6 - Let's enable cni pliugn in the configuration file /etc/containerd/config.toml
+if you dont have file /etc/containerd/config.toml
+```
+sudo mkdir /etc/containerd
+```
+```
+sudo touch /etc/containerd/config.toml
+```
+```
+sudo -i
+```
 ```
 containerd config default > /etc/containerd/config.toml
+```
+```
+exit
 ```
 ```
 sudo systemctl restart containerd.service
