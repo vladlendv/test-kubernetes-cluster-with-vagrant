@@ -65,8 +65,8 @@ Add host entry for master as well as worker node
 sudo vi /etc/hosts
 ```
 ```
-100.0.0.1 master.jhooq.com master
-100.0.0.2 worker.jhooq.com worker
+100.0.0.1 master.com master
+100.0.0.2 worker.com worker
 ```
 worker node - SSH into the master node
 ```
@@ -77,8 +77,8 @@ Add host entry for master as well as worker node
 sudo vi /etc/hosts
 ```
 ```
-100.0.0.1 master.jhooq.com master
-100.0.0.2 worker.jhooq.com worker
+100.0.0.1 master.com master
+100.0.0.2 worker.com worker
 ```
 Test the worker node by sending from master
 ```
@@ -86,9 +86,9 @@ ping worker
 ```
 example of expected output
 ```
-PING worker.jhooq.com (100.0.0.2) 56(84) bytes of data.
-64 bytes from worker.jhooq.com (100.0.0.2): icmp_seq=1 ttl=64 time=0.462 ms
-64 bytes from worker.jhooq.com (100.0.0.2): icmp_seq=2 ttl=64 time=0.686 ms
+PING worker.com (100.0.0.2) 56(84) bytes of data.
+64 bytes from worker.com (100.0.0.2): icmp_seq=1 ttl=64 time=0.462 ms
+64 bytes from worker.com (100.0.0.2): icmp_seq=2 ttl=64 time=0.686 ms
 ```
 Test the master node by sending from worker
 ```
@@ -96,9 +96,9 @@ ping master
 ```
 example of expected output
 ```
-PING master.jhooq.com (100.0.0.1) 56(84) bytes of data.
-64 bytes from master.jhooq.com (100.0.0.1): icmp_seq=1 ttl=64 time=0.238 ms
-64 bytes from master.jhooq.com (100.0.0.1): icmp_seq=2 ttl=64 time=0.510 ms
+PING master.com (100.0.0.1) 56(84) bytes of data.
+64 bytes from master.com (100.0.0.1): icmp_seq=1 ttl=64 time=0.238 ms
+64 bytes from master.com (100.0.0.1): icmp_seq=2 ttl=64 time=0.510 ms
 ```
 ## Step 3 - Install Docker on both master and worker node
 You need to install Docker on both the node.
